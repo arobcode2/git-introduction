@@ -47,10 +47,21 @@ Return count (7)
 
 function hammingDistance(dNA1, dNA2) {
   //create counter
+  var count = 0;
   //split dNA1 into an array of chars
+  var dNA1Chars = dNA1.split('');
   //split dNA2 into an array of chars
+  var dNA2Chars = dNA2.split('');
   //iterate through dNA1 chars and dNA2 chars
+  for (var i = 0; i < dNA1.length; i++) {
     //if element at index of dNA1 is not equal to element at index of dNA2
+    if (dNA1[i] !== dNA2[i]) {
       //increment count
+      count++;
+    }
+  }
   //return count
+  return count;
 }
+
+//console.log(hammingDistance('GAGCCTACTAACGGGAT', 'CATCGTAATGACGGCCT'));
