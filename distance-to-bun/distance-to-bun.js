@@ -65,19 +65,43 @@ return 1
 
 function distanceToBun(arr, ingredient) {
   //create variable to store distance
+  var distance = 0;
   //create midpoint variable
+  var midpoint = 0;
   //store index of last item in arr in var
+  var lastItemInd = arr.length - 1;
   //store index of ingredient in var
+  var ingredientInd = arr.indexOf(ingredient);
   //calculate midpoint: index of last item in arr / 2
+  midpoint = lastItemInd / 2;
   //if arr length is odd
+  if (arr.length % 2 !== 0) {
     //if index of ingredient is greater than midpoint
+    if (ingredientInd > midpoint) {
       //distance is index of last item in arr - index of ingredient
-    //else 
-      //distance is index of ingredient
-  //if arr length is even
-    //if index of ingredient is greater than midpoint
-      //distance is index of last item in arr - index of ingredient
+      distance = lastItemInd - ingredientInd;
+    }
     //else
+    else {
       //distance is index of ingredient
+      distance = ingredientInd;
+    } 
+  }
+  //if arr length is even
+  if (arr.length % 2 === 0) {
+    //if index of ingredient is greater than midpoint
+    if (ingredientInd > midpoint) {
+      //distance is index of last item in arr - index of ingredient
+      distance = lastItemInd - ingredientInd;
+    }
+    //else
+    else {
+      //distance is index of ingredient
+      distance = ingredientInd;
+    }
+  }
   //return distance
+  return distance;
 }
+
+//console.log(distanceToBun(['cheese', 'burger', 'bacon', 'pickles', 'mayo', 'lettuce', 'tomato'], 'pickles'));
