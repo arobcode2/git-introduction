@@ -58,8 +58,8 @@ retrun 1
 passed in ingredient: 'burger' => 1, 1 === 1
 return 1
 
-['cheese', 'burger', 'bacon', 'pickles', 'mayo', 'lettuce', 'tomato'] => 4, 4/2 = 2
-passed in ingredient: 'burger' => 1, 1 < 2 => 1
+['cheese', 'burger', 'bacon', 'pickles', 'mayo', 'lettuce', 'tomato'] => 6, 6/2 = 3
+passed in ingredient: 'burger' => 1, 1 < 3 => 1
 return 1
 */
 
@@ -74,34 +74,19 @@ function distanceToBun(arr, ingredient) {
   var ingredientInd = arr.indexOf(ingredient);
   //calculate midpoint: index of last item in arr / 2
   midpoint = lastItemInd / 2;
-  //if arr length is odd
-  if (arr.length % 2 !== 0) {
-    //if index of ingredient is greater than midpoint
-    if (ingredientInd > midpoint) {
-      //distance is index of last item in arr - index of ingredient
-      distance = lastItemInd - ingredientInd;
-    }
-    //else
-    else {
-      //distance is index of ingredient
-      distance = ingredientInd;
-    } 
+  //if index of ingredient is greater than midpoint
+  if (ingredientInd > midpoint) {
+    //distance is index of last item in arr - index of ingredient
+    distance = lastItemInd - ingredientInd;
   }
-  //if arr length is even
-  if (arr.length % 2 === 0) {
-    //if index of ingredient is greater than midpoint
-    if (ingredientInd > midpoint) {
-      //distance is index of last item in arr - index of ingredient
-      distance = lastItemInd - ingredientInd;
-    }
-    //else
-    else {
-      //distance is index of ingredient
-      distance = ingredientInd;
-    }
-  }
+  //else
+  else {
+    //distance is index of ingredient
+    distance = ingredientInd;
+  } 
   //return distance
   return distance;
 }
 
-//console.log(distanceToBun(['cheese', 'burger', 'bacon', 'pickles', 'mayo', 'lettuce', 'tomato'], 'pickles'));
+console.log(distanceToBun(['cheese', 'burger', 'bacon', 'lettuce', 'tomato'], 'lettuce'));
+//this is a console log to test the function
